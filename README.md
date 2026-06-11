@@ -33,4 +33,4 @@
 > 
 >  config -> Application configs
 > 
->  Exception -> 
+>  Exception -> Exeption handling
