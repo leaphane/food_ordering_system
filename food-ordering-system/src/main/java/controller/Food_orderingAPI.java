@@ -15,7 +15,7 @@ public class Food_orderingAPI {
     @Autowired
     private Food_orderingService service;
 
-    @GetMapping("")
+    @GetMapping("/food/{id}")
     public ResponseEntity<?> getFoodOrder(@PathVariable String id){
 
         Food_categories food_category = service.food_order(Integer.parseInt(id));
