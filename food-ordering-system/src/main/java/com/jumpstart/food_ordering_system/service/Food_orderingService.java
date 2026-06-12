@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.jumpstart.food_ordering_system.repository.Food_orderingRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class Food_orderingService {
 
@@ -24,5 +26,11 @@ public class Food_orderingService {
         else{
             return null; // return null if the id is not in the db
         }
+    }
+
+    public List<Food_categories> getAllCategories(){
+
+        return repo.findAll();
+
     }
 }
