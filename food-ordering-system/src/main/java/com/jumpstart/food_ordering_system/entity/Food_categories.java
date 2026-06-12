@@ -1,4 +1,4 @@
-package entity;
+package com.jumpstart.food_ordering_system.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
