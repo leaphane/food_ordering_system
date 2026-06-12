@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import com.jumpstart.food_ordering_system.service.Food_orderingService;
 
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/api/category")
 public class Food_orderingAPI {
 
     @Autowired

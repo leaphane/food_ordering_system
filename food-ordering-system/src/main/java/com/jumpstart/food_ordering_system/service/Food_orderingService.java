@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 public class Food_orderingService {
 
     @Autowired
-    private Food_orderingRepo repo;
+    private Food_orderingRepo repo;//Inject CategoryRepository
 
     public Food_categoriesDTO food_order(int id){
 
-        if(repo.findById(id).isPresent()){ //find by the given id path variable
+        if(repo.findById(id).isPresent()){ //check category of the given id
 
             Food_categories foodCategory = repo.findById(id).get();
 
