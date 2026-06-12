@@ -8,7 +8,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Food_categoriesDTO {
+public class Food_categoriesDTO {// dto class for carrying entity data between the service and API for request
 
         private int id;
         private String name;

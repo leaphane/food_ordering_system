@@ -14,15 +14,15 @@ public class Food_orderingService {
 
     public Food_categoriesDTO food_order(int id){
 
-        if(repo.findById(id).isPresent()){
+        if(repo.findById(id).isPresent()){ //find by the given id path variable
 
             Food_categories foodCategory = repo.findById(id).get();
 
-            return  new Food_categoriesDTO( id, foodCategory.getName());
+            return  new Food_categoriesDTO( id, foodCategory.getName()); // return a new dto object with the id and name
 
         }
         else{
-            return null;
+            return null; // return null if the id is not in the db
         }
     }
 }
