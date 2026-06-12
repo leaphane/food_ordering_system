@@ -1,6 +1,5 @@
 package com.jumpstart.food_ordering_system.controller;
 import com.jumpstart.food_ordering_system.dto.Food_categoriesDTO;
-import com.jumpstart.food_ordering_system.entity.Food_categories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
