@@ -10,5 +10,12 @@ class FoodOrderingSystemApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void testFoodByIdEndpoint(){
+
+	}
+
+
+
 
 }
