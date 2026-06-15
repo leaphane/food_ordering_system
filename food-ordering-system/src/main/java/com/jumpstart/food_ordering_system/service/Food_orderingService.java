@@ -30,7 +30,13 @@ public class Food_orderingService {
 
     public List<Food_categories> getAllCategories(){
 
-        return repo.findAll();
+        if(!repo.findAll().isEmpty()){
+            return repo.findAll();// List of all food categories
+        }
+        else {
+            return null; // return null if the list is empty
+
+        }
 
     }
 }
