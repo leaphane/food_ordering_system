@@ -28,7 +28,7 @@ public class Food_orderingAPI {
 
     }
     @GetMapping("/allCategories")
-    public ResponseEntity<?> getAllFoodCategories(@PathVariable String id){
+    public ResponseEntity<?> getAllFoodCategories(){
 
         List<Food_categories>  foodCategories = service.getAllCategories();
 

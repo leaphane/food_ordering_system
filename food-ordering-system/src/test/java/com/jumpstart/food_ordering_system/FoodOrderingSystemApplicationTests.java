@@ -14,7 +14,7 @@ class FoodOrderingSystemApplicationTests {
 	@Test
 	void testFoodByIdEndpoint(){
 
-		HttpResponse<String> response = Unirest.get("http://localhost:8080/api/categories/2")
+		HttpResponse<String> response = Unirest.get("http://localhost:8080/api/category/2")
 				.asString();
 
 		assertEquals(200, response.getStatus());
