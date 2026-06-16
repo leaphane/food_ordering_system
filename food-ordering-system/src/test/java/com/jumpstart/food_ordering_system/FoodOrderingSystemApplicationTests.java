@@ -1,9 +1,10 @@
 package com.jumpstart.food_ordering_system;
-
+import kong.unirest.HttpResponse;
+import kong.unirest.Unirest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
 class FoodOrderingSystemApplicationTests {
 
 	@Test
@@ -12,6 +13,16 @@ class FoodOrderingSystemApplicationTests {
 
 	@Test
 	void testFoodByIdEndpoint(){
+
+		HttpResponse<String> response = Unirest.get("http://localhost:8080/api/categories/2")
+				.asString();
+
+		assertEquals(200, response.getStatus());
+
+		String body = response.getBody();
+
+		assertTrue(body.contains("\"id\":2"));
+		assertTrue(body.contains("\"name\":\"Fast food\""));
 
 	}
 
