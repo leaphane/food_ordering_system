@@ -36,7 +36,7 @@ class FoodOrderingSystemApplicationTests {
 
 		assertEquals(200, response.getStatus());
 
-		var categories = response.getBody().getArray();
+		var categories = response.getBody().getArray();//n.b
 
 		assertEquals(4, categories.length());
 

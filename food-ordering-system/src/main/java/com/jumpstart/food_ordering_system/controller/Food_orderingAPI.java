@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.jumpstart.food_ordering_system.service.Food_orderingService;
-
 import java.util.List;
 
+// API layer. Handles HTTP requests and responses.
 @RestController
 @RequestMapping("/api/category")
 public class Food_orderingAPI {
