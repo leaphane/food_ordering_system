@@ -59,5 +59,18 @@ public class Food_orderingAPI {
        return ResponseEntity.badRequest().build();
 
    }
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateCategory(@PathVariable String id, @RequestBody Food_categoriesDTO foodCategoriesDTO){
+
+        if(!service.updateCategory(id,foodCategoriesDTO )){
+
+            return ResponseEntity.ok().build();
+
+        }
+        return ResponseEntity.badRequest().build();
+
+    }
+
+
 
 }

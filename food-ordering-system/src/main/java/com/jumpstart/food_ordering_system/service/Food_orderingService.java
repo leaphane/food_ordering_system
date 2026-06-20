@@ -67,4 +67,23 @@ public class Food_orderingService {
     }
 
 
+    public boolean updateCategory(String id, Food_categoriesDTO foodCategoriesDTO) {
+        try {
+
+            if (repo.findById(Integer.parseInt(id)).isPresent()) {
+
+                Food_categories foodCategories = repo.findById(Integer.parseInt(id)).get();
+                foodCategories.setName(foodCategoriesDTO.getName());
+                repo.save(foodCategories);
+
+                return true;
+            }
+
+            return false;// if the id does not exist
+
+        } catch (Exception e) {
+
+            return false;
+        }
+    }
 }
