@@ -21,4 +21,6 @@ public class Food_categories {// entity class to represent the db table
     @Column(nullable = false)// cannot have the food ordered name as null
     public String name;
 
+    public Food_categories(String name) {
+    }
 }

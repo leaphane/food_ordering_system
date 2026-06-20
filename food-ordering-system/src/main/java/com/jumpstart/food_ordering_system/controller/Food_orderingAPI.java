@@ -9,7 +9,7 @@ import java.util.List;
 
 // API layer. Handles HTTP requests and responses.
 @RestController
-@RequestMapping("/api/category")
+@RequestMapping("/api/categories")
 public class Food_orderingAPI {
 
     @Autowired
@@ -35,5 +35,18 @@ public class Food_orderingAPI {
         return ResponseEntity.ok(foodCategories);
 
     }
+
+   @PostMapping("/{id}")
+    public  ResponseEntity<?> createCategory(@RequestBody Food_categoriesDTO foodCategoriesDTO){
+
+       if(!service.createCategory(foodCategoriesDTO)){
+
+           return ResponseEntity.status(201).build();
+
+       }
+       return ResponseEntity.noContent().build();
+
+
+   }
 
 }
