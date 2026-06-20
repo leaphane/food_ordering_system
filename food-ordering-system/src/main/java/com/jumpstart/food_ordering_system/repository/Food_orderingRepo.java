@@ -9,5 +9,5 @@ import java.util.Optional;
 // for CRUD operations
 public interface Food_orderingRepo  extends JpaRepository<Food_categories, Long> {
     Optional<Food_categories> findById(int Id);
-
+    Optional<Food_categories> deleteById(int Id);
 }

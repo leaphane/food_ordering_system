@@ -36,7 +36,7 @@ public class Food_orderingAPI {
 
     }
 
-   @PostMapping("/{id}")
+   @PostMapping()
     public  ResponseEntity<?> createCategory(@RequestBody Food_categoriesDTO foodCategoriesDTO){
 
        if(!service.createCategory(foodCategoriesDTO)){
@@ -46,6 +46,17 @@ public class Food_orderingAPI {
        }
        return ResponseEntity.noContent().build();
 
+
+   }
+
+   @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteCategory(@PathVariable String id){
+
+       if(!service.deleteCategory(id)){
+           return ResponseEntity.noContent().build();
+
+       }
+       return ResponseEntity.badRequest().build();
 
    }
 

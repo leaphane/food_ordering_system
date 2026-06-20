@@ -52,4 +52,19 @@ public class Food_orderingService {
        }
 
     }
+    public boolean deleteCategory(String id){
+
+        try{
+
+            repo.deleteById(Integer.parseInt(id));
+            return true;
+
+        }
+        catch (Exception e) {
+            return false;
+        }
+
+    }
+
+
 }
