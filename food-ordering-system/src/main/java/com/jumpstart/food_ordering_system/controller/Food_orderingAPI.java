@@ -63,9 +63,9 @@ public class Food_orderingAPI {
 
    }
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateCategory(@PathVariable String id, @RequestBody @Valid Food_categoriesDTO foodCategoriesDTO){
+    public ResponseEntity<?> updateCategory(@PathVariable String id, @RequestBody @Valid CreateCategoryDTO categoryDTO){
 
-        if(service.updateCategory(id,foodCategoriesDTO )){
+        if(service.updateCategory(id,categoryDTO )){
 
             return ResponseEntity.ok().build();
 

@@ -68,13 +68,13 @@ public class Food_orderingService {
     }
 
 
-    public boolean updateCategory(String id, Food_categoriesDTO foodCategoriesDTO) {
+    public boolean updateCategory(String id, CreateCategoryDTO categoryDTO) {
         try {
 
             if (repo.findById(Integer.parseInt(id)).isPresent()) {
 
                 Food_categories foodCategories = repo.findById(Integer.parseInt(id)).get();
-                foodCategories.setName(foodCategoriesDTO.getName());
+                foodCategories.setName(categoryDTO.getName());
                 repo.save(foodCategories);
 
                 return true;
