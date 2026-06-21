@@ -55,6 +55,7 @@ public class Food_orderingAPI {
     public ResponseEntity<?> deleteCategory(@PathVariable String id){
 
        if(service.deleteCategory(id)){
+
            return ResponseEntity.noContent().build();
 
        }
