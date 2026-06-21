@@ -1,4 +1,5 @@
 package com.jumpstart.food_ordering_system.controller;
+import com.jumpstart.food_ordering_system.dto.CreateCategoryDTO;
 import com.jumpstart.food_ordering_system.dto.Food_categoriesDTO;
 import com.jumpstart.food_ordering_system.entity.Food_categories;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,9 +39,9 @@ public class Food_orderingAPI {
     }
 
    @PostMapping()
-    public  ResponseEntity<?> createCategory(@Valid @RequestBody Food_categoriesDTO foodCategoriesDTO){
+    public  ResponseEntity<?> createCategory(@Valid @RequestBody CreateCategoryDTO categoryDTO){
 
-       if(!service.createCategory(foodCategoriesDTO)){
+       if(!service.createCategory(categoryDTO)){
 
            return ResponseEntity.status(201).build();
 
@@ -71,7 +72,5 @@ public class Food_orderingAPI {
         return ResponseEntity.badRequest().build();
 
     }
-
-
 
 }

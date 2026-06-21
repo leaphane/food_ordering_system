@@ -1,6 +1,5 @@
 package com.jumpstart.food_ordering_system.dto;
-import jakarta.annotation.Nullable;
-import jakarta.persistence.GeneratedValue;
+
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,11 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Food_categoriesDTO {// dto class for carrying entity data between the service and API for request
-
-
-        private int id;
-        @NotBlank
-        private String name;
-
+public class CreateCategoryDTO {
+    @NotBlank
+    private String name;
 }

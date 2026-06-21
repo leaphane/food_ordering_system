@@ -1,4 +1,5 @@
 package com.jumpstart.food_ordering_system.service;
+import com.jumpstart.food_ordering_system.dto.CreateCategoryDTO;
 import com.jumpstart.food_ordering_system.dto.Food_categoriesDTO;
 import com.jumpstart.food_ordering_system.entity.Food_categories;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,11 +40,11 @@ public class Food_orderingService {
 
     }
 
-    public boolean createCategory(Food_categoriesDTO foodCategoriesDTO){
+    public boolean createCategory(CreateCategoryDTO categoryDTO){
 
        try{
 
-           repo.save(new Food_categories(foodCategoriesDTO.getName()));
+           repo.save(new Food_categories(categoryDTO.getName()));
            return true;
 
        }
