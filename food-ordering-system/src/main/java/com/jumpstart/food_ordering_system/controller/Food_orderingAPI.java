@@ -28,7 +28,7 @@ public class Food_orderingAPI {
         else return ResponseEntity.badRequest().body("Food id does not exist");
 
     }
-    @GetMapping("/allCategories")
+    @GetMapping()
     public ResponseEntity<?> getAllFoodCategories(){
 
         List<Food_categories>  foodCategories = service.getAllCategories();

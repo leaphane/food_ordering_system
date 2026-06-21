@@ -15,7 +15,7 @@ class FoodOrderingSystemApplicationTests {
 	@Test
 	void testFoodByIdEndpoint(){
 
-		HttpResponse<String> response = Unirest.get("http://localhost:8080/api/category/2")
+		HttpResponse<String> response = Unirest.get("http://localhost:8080/api/categories/2")
 				.asString();
 
 		assertEquals(200, response.getStatus());
@@ -31,7 +31,7 @@ class FoodOrderingSystemApplicationTests {
 	void testAllCategoriesEndpoint() {
 
 		HttpResponse<JsonNode> response =
-				Unirest.get("http://localhost:8080/api/category/allCategories")
+				Unirest.get("http://localhost:8080/api/categories")
 						.asJson();
 
 		assertEquals(200, response.getStatus());
