@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.jumpstart.food_ordering_system.service.Food_orderingService;
 import java.util.List;
+import jakarta.validation.Valid;
 
 // API layer. Handles HTTP requests and responses.
 @RestController
@@ -37,7 +38,7 @@ public class Food_orderingAPI {
     }
 
    @PostMapping()
-    public  ResponseEntity<?> createCategory(@RequestBody Food_categoriesDTO foodCategoriesDTO){
+    public  ResponseEntity<?> createCategory(@Valid @RequestBody Food_categoriesDTO foodCategoriesDTO){
 
        if(!service.createCategory(foodCategoriesDTO)){
 
@@ -60,7 +61,7 @@ public class Food_orderingAPI {
 
    }
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateCategory(@PathVariable String id, @RequestBody Food_categoriesDTO foodCategoriesDTO){
+    public ResponseEntity<?> updateCategory(@PathVariable String id, @RequestBody @Valid Food_categoriesDTO foodCategoriesDTO){
 
         if(!service.updateCategory(id,foodCategoriesDTO )){
 
