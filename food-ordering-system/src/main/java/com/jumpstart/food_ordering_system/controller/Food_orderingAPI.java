@@ -22,11 +22,9 @@ public class Food_orderingAPI {
 
         Food_categoriesDTO food_category = service.food_order(Integer.parseInt(id));
 
-        if( food_category!= null){
+        return ResponseEntity.ok(food_category);
 
-          return ResponseEntity.ok(food_category);
-        }
-        else return ResponseEntity.badRequest().body("Food id does not exist");
+        //else return ResponseEntity.badRequest().body("Food id does not exist");
 
     }
     @GetMapping()

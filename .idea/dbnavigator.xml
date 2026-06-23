@@ -39,7 +39,6 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
       <object connection-id="528d0caf-c65b-422e-8e69-d0be26e5613c" object-ref="consoles/Connection" />
-      <object connection-id="7115c16c-d24d-4ce1-b3bb-b59bba4d8904" object-ref="schemas/food_ordering_db/tables/category" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
