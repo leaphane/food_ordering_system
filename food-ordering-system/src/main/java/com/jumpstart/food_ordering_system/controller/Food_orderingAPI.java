@@ -18,7 +18,7 @@ public class Food_orderingAPI {
     private Food_orderingService service;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getFoodOrder(@PathVariable String id){
+    public ResponseEntity<Food_categoriesDTO> getFoodOrder(@PathVariable String id){
 
         Food_categoriesDTO food_category = service.food_order(Integer.parseInt(id));
 
@@ -28,7 +28,7 @@ public class Food_orderingAPI {
 
     }
     @GetMapping()
-    public ResponseEntity<?> getAllFoodCategories(){
+    public ResponseEntity<List<Food_categories>> getAllFoodCategories(){
 
         List<Food_categories>  foodCategories = service.getAllCategories();
 
