@@ -1,5 +1,4 @@
 package com.jumpstart.food_ordering_system.entity;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,5 +21,6 @@ public class Food_categories {// entity class to represent the db table
     public String name;
 
     public Food_categories(String name) {
+        this.name = name;
     }
 }

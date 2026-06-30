@@ -1,4 +1,5 @@
 package com.jumpstart.food_ordering_system.controller;
+import com.jumpstart.food_ordering_system.dto.CreateCategoryDTO;
 import com.jumpstart.food_ordering_system.dto.Food_categoriesDTO;
 import com.jumpstart.food_ordering_system.entity.Food_categories;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.jumpstart.food_ordering_system.service.Food_orderingService;
 import java.util.List;
+import jakarta.validation.Valid;
 
 // API layer. Handles HTTP requests and responses.
 @RestController
@@ -20,14 +22,12 @@ public class Food_orderingAPI {
 
         Food_categoriesDTO food_category = service.food_order(Integer.parseInt(id));
 
-        if( food_category!= null){
+        return ResponseEntity.ok(food_category);
 
-          return ResponseEntity.ok(food_category);
-        }
-        else return ResponseEntity.badRequest().body("Food id does not exist");
+        //else return ResponseEntity.badRequest().body("Food id does not exist");
 
     }
-    @GetMapping("/allCategories")
+    @GetMapping()
     public ResponseEntity<?> getAllFoodCategories(){
 
         List<Food_categories>  foodCategories = service.getAllCategories();
@@ -37,14 +37,14 @@ public class Food_orderingAPI {
     }
 
    @PostMapping()
-    public  ResponseEntity<?> createCategory(@RequestBody Food_categoriesDTO foodCategoriesDTO){
+    public  ResponseEntity<?> createCategory(@Valid @RequestBody CreateCategoryDTO categoryDTO){
 
-       if(!service.createCategory(foodCategoriesDTO)){
+       if(service.createCategory(categoryDTO)){
 
            return ResponseEntity.status(201).build();
 
        }
-       return ResponseEntity.noContent().build();
+       return ResponseEntity.badRequest().build();
 
 
    }
@@ -52,7 +52,8 @@ public class Food_orderingAPI {
    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCategory(@PathVariable String id){
 
-       if(!service.deleteCategory(id)){
+       if(service.deleteCategory(id)){
+
            return ResponseEntity.noContent().build();
 
        }
@@ -60,9 +61,9 @@ public class Food_orderingAPI {
 
    }
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateCategory(@PathVariable String id, @RequestBody Food_categoriesDTO foodCategoriesDTO){
+    public ResponseEntity<?> updateCategory(@PathVariable String id, @RequestBody @Valid CreateCategoryDTO categoryDTO){
 
-        if(!service.updateCategory(id,foodCategoriesDTO )){
+        if(service.updateCategory(id,categoryDTO )){
 
             return ResponseEntity.ok().build();
 
@@ -70,7 +71,5 @@ public class Food_orderingAPI {
         return ResponseEntity.badRequest().build();
 
     }
-
-
 
 }

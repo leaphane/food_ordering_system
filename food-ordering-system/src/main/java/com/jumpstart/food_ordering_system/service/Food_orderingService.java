@@ -1,6 +1,8 @@
 package com.jumpstart.food_ordering_system.service;
+import com.jumpstart.food_ordering_system.dto.CreateCategoryDTO;
 import com.jumpstart.food_ordering_system.dto.Food_categoriesDTO;
 import com.jumpstart.food_ordering_system.entity.Food_categories;
+import com.jumpstart.food_ordering_system.exception.CategoryNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.jumpstart.food_ordering_system.repository.Food_orderingRepo;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,7 @@ public class Food_orderingService {
 
         }
         else{
-            return null; // return null if the id is not in the db
+           throw new CategoryNotFoundException("Category of id " + id + " was not found");// return null if the id is not in the db
         }
     }
 
@@ -39,11 +41,11 @@ public class Food_orderingService {
 
     }
 
-    public boolean createCategory(Food_categoriesDTO foodCategoriesDTO){
+    public boolean createCategory(CreateCategoryDTO categoryDTO){
 
        try{
 
-           repo.save(new Food_categories(foodCategoriesDTO.getName()));
+           repo.save(new Food_categories(categoryDTO.getName()));
            return true;
 
        }
@@ -56,7 +58,7 @@ public class Food_orderingService {
 
         try{
 
-            repo.deleteById(Integer.parseInt(id));
+            repo.deleteById(Long.parseLong(id));
             return true;
 
         }
@@ -67,13 +69,13 @@ public class Food_orderingService {
     }
 
 
-    public boolean updateCategory(String id, Food_categoriesDTO foodCategoriesDTO) {
+    public boolean updateCategory(String id, CreateCategoryDTO categoryDTO) {
         try {
 
             if (repo.findById(Integer.parseInt(id)).isPresent()) {
 
                 Food_categories foodCategories = repo.findById(Integer.parseInt(id)).get();
-                foodCategories.setName(foodCategoriesDTO.getName());
+                foodCategories.setName(categoryDTO.getName());
                 repo.save(foodCategories);
 
                 return true;
