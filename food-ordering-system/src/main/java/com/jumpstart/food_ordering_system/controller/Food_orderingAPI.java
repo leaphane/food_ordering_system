@@ -1,4 +1,5 @@
 package com.jumpstart.food_ordering_system.controller;
+import com.jumpstart.food_ordering_system.Response.Response;
 import com.jumpstart.food_ordering_system.dto.CreateCategoryDTO;
 import com.jumpstart.food_ordering_system.dto.Food_categoriesDTO;
 import com.jumpstart.food_ordering_system.entity.Food_categories;
@@ -18,57 +19,57 @@ public class Food_orderingAPI {
     private Food_orderingService service;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getFoodOrder(@PathVariable String id){
+    public Response<Food_categoriesDTO> getFoodOrder(@PathVariable String id){
 
         Food_categoriesDTO food_category = service.food_order(Integer.parseInt(id));
 
-        return ResponseEntity.ok(food_category);
+        return Response.success( "Success",food_category);
 
         //else return ResponseEntity.badRequest().body("Food id does not exist");
 
     }
     @GetMapping()
-    public ResponseEntity<?> getAllFoodCategories(){
+    public Response<List<Food_categories>> getAllFoodCategories(){
 
         List<Food_categories>  foodCategories = service.getAllCategories();
 
-        return ResponseEntity.ok(foodCategories);
+        return Response.success("List of categories",foodCategories);
 
     }
 
    @PostMapping()
-    public  ResponseEntity<?> createCategory(@Valid @RequestBody CreateCategoryDTO categoryDTO){
+    public  Response<?> createCategory(@Valid @RequestBody CreateCategoryDTO categoryDTO){
 
-       if(service.createCategory(categoryDTO)){
+       if(service.createCategory(categoryDTO)){//201 code?
 
-           return ResponseEntity.status(201).build();
+           return Response.success("Category created",null);
 
        }
-       return ResponseEntity.badRequest().build();
+       return Response.error(400, "Invalid inputs");
 
 
    }
 
    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteCategory(@PathVariable String id){
+    public Response<?> deleteCategory(@PathVariable String id){
 
        if(service.deleteCategory(id)){
 
-           return ResponseEntity.noContent().build();
+           return Response.success("Category deleted",null);
 
        }
-       return ResponseEntity.badRequest().build();
+       return Response.error(400, "Invalid category id");
 
    }
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateCategory(@PathVariable String id, @RequestBody @Valid CreateCategoryDTO categoryDTO){
+    public Response<CreateCategoryDTO> updateCategory(@PathVariable String id, @RequestBody @Valid CreateCategoryDTO categoryDTO){
 
         if(service.updateCategory(id,categoryDTO )){
 
-            return ResponseEntity.ok().build();
+            return Response.success("Category updated",new CreateCategoryDTO() );
 
         }
-        return ResponseEntity.badRequest().build();
+        return Response.error(400, "Bad request");
 
     }
 

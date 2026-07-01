@@ -51,3 +51,8 @@
 > config -> Application configs
 > 
 > Exception -> Exception handling
+> 
+## API Response Format
+> { "statusCode": 200, "message": "Category retrieved",
+"data": { "id": 1, "name": "Burgers" },
+"timestamp": "2026-06-18T08:42:11" }
