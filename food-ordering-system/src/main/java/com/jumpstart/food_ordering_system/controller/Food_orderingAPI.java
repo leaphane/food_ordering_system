@@ -1,5 +1,5 @@
 package com.jumpstart.food_ordering_system.controller;
-import com.jumpstart.food_ordering_system.response.Respgtonse;
+import com.jumpstart.food_ordering_system.response.Response;
 import com.jumpstart.food_ordering_system.dto.CreateCategoryDTO;
 import com.jumpstart.food_ordering_system.dto.Food_categoriesDTO;
 import com.jumpstart.food_ordering_system.entity.Food_categories;
