@@ -18,15 +18,15 @@ public class Menu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id ;
-    public String name;
+    private Long id ;
+    private String name;
     @Column(length = 1000)
-    public String description;
-    public BigDecimal price;
-    public String imageUrl;
+    private String description;
+    private BigDecimal price;
+    private String imageUrl;
     @ManyToOne
     @JoinColumn(name = "category_id")
-    public Food_categories category;
+    private Food_categories category;
 
 
 
