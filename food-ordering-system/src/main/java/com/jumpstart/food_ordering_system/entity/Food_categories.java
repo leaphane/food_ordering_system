@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +22,8 @@ public class Food_categories {// entity class to represent the db table
     @Column(nullable = false)// cannot have the food ordered name as null
     private String name;
 
-
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Menu> categories_menu;
 
     public Food_categories(String name) {
         this.name = name;
