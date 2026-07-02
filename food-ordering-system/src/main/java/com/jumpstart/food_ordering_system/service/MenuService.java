@@ -7,6 +7,8 @@ import com.jumpstart.food_ordering_system.repository.MenuRepository;
 import com.jumpstart.food_ordering_system.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 public class MenuService {
 
     @Autowired
@@ -22,6 +24,16 @@ public class MenuService {
         menuRepo.save(new Menu(dto.getName(), dto.getDescription(), dto.getPrice(), dto.getImageUrl()));
         return true;
     }
-//    Response<List<MenuDto>> getAllMenus();
-//    Response<MenuDto> getMenuById(Long id);
+    public List<Menu> getAllMenus(){
+
+        return menuRepo.findAll();
+    }
+    public MenuDto getMenuById(Long id){
+
+        if(menuRepo.findById(id).isPresent()){
+
+            Menu menu = menuRepo.findById(id).get();
+            return new MenuDto(menu.getName(), menu.getDescription(), menu.getPrice(), menu.getImageUrl())
+        }
+    }
 }

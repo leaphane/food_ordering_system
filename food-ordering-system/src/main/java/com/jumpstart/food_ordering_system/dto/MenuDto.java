@@ -1,5 +1,4 @@
 package com.jumpstart.food_ordering_system.dto;
-
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -30,4 +29,11 @@ public class MenuDto {
 
     private String categoryName; // output only
 
+    public MenuDto(String name, String description, BigDecimal price, String imageUrl) {
+
+        this.name = name;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.price = price;
+    }
 }
