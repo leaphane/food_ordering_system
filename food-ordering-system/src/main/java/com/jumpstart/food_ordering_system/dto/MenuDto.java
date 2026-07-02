@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class MenuDto {
 
 
-    private Long id;
+    //private Long id; this does not make sense
 
     @NotBlank(message = "Name is required")
     private String name;

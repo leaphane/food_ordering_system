@@ -1,8 +1,27 @@
 package com.jumpstart.food_ordering_system.service;
 
+import com.jumpstart.food_ordering_system.dto.MenuDto;
+import com.jumpstart.food_ordering_system.entity.Menu;
+import com.jumpstart.food_ordering_system.exception.ConflictException;
+import com.jumpstart.food_ordering_system.repository.MenuRepository;
+import com.jumpstart.food_ordering_system.response.Response;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class MenuService {
 
-//    Response<MenuDto> createMenu(MenuDto dto);
+    @Autowired
+    private MenuRepository menuRepo ;
+
+    public boolean createMenu(MenuDto dto){
+
+        if(menuRepo.findById(dto.getName()).isPresent()){
+
+            throw new ConflictException("Name already exist");
+
+        }
+        menuRepo.save(new Menu(dto.getName(), dto.getDescription(), dto.getPrice(), dto.getImageUrl()));
+        return true;
+    }
 //    Response<List<MenuDto>> getAllMenus();
 //    Response<MenuDto> getMenuById(Long id);
 }

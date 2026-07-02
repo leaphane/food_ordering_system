@@ -1,6 +1,7 @@
 package com.jumpstart.food_ordering_system.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,5 +30,11 @@ public class Menu {
     private Food_categories category;
 
 
+    public Menu(String name, String description, BigDecimal price, String imageUrl) {
 
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imageUrl = imageUrl;
+    }
 }
